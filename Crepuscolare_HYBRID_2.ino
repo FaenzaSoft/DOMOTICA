@@ -55,6 +55,7 @@ void loop()
     segmenti = analogRead (sensorePin);
     somma = somma + segmenti;              // attenzione a non superare il limite di 32767;
   }
+  segmenti = somma / 10; 
   if (segmenti < luminosita) ciclopwm = ciclopwm + 1;
   else ciclopwm = ciclopwm - 1;
   if (ciclopwm > 255) ciclopwm = 255;
