@@ -30,6 +30,7 @@
 #include <Wire.h>                      // libreria necessaria pere diplay seriale:
 #include <LiquidCrystal_I2C.h>         //inclusione della libreria per display seriale:
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);    // impostazione display seriale NewLiquidCristal:
+// LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);    // indirizzo LCD Philips PCF8574AT:
 //
 int caricoPin = 9;             // carico analogico PWM pin 9:
 int sensorePin = A0;           // sensore fotoresistenza;
