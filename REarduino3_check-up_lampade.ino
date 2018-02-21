@@ -94,9 +94,9 @@ void loop()
     //
     delay(2);
   }
-  volt_IN = (somma_IN / 50);  // perchè è stata fatta la somma di 400 cicli:    // per avere 3 decimali
-  volt_SHUNT = (somma_SHUNT / 50);  // perchè è stata fatta la somma di 400 cicli:   // per avere 3 decimali:
-  volt_DRAIN = (somma_DRAIN / 50);  // perchè è stata fatta la somma di 400 cicli:   // per avere 3 decimali:
+  volt_IN = (somma_IN / 50);  // perchè è stata fatta la somma di 500 cicli:    // per avere 3 decimali
+  volt_SHUNT = (somma_SHUNT / 50);  // perchè è stata fatta la somma di 500 cicli:   // per avere 3 decimali:
+  volt_DRAIN = (somma_DRAIN / 50);  // perchè è stata fatta la somma di 500 cicli:   // per avere 3 decimali:
   volt_IN = (volt_IN * fondo_scala / 100);              // rettifica valori in relazione a divisore di tensione:
   volt_SHUNT = (volt_SHUNT * fondo_scala / 100);
   volt_DRAIN = (volt_DRAIN * fondo_scala / 100);
@@ -117,12 +117,12 @@ void loop()
   {
     mAmper = 0;
   }
-  volt_OUT = volt_OUT / 10;        // così ci sono solo 2 decimali;
-  volt_SHUNT = volt_SHUNT / 10;    // così ci sono solo 2 decimali;
+  volt_OUT = volt_OUT / 10;        // così ci sono solo 2 decimali, da visualizzare;
+  volt_SHUNT = volt_SHUNT / 10;    // così ci sono solo 2 decimali, da visualizzare;
   //
   // step 3 ************************ GESTIONE PWM ***************************************************
   segmenti = analogRead (A0);        // verifica i segmenti della fotoresistenza o dello slider:
-  // if (volt_OUT > 1200) ciclopwm = (segmenti / 4) - correzione;         // limitarore 12 volt:
+  // if (volt_OUT > 1200) ciclopwm = (segmenti / 4) - correzione;         // limitatore 12 volt:
   ciclopwm = (segmenti / 4);          // perchè i segmenti sono 1024 e il pwm 255:
   if (ciclopwm > 255) ciclopwm = 255;
   if (ciclopwm < 0) ciclopwm = 0;
@@ -205,7 +205,7 @@ void loop()
   }
   //
 }
-//FINE by SoftPlus Consumo Zero per blog Mauro Alfieri
+// FINE by SoftPlus Consumo Zero per blog Mauro Alfieri
 
 
 
