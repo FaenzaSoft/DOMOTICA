@@ -82,7 +82,7 @@ int surplus = 0;
 int surplus_negativo = 0;
 int compensazione = 2;             // moltiplicatore dei  segmenti trasformati in watt:
 int potenza_watt_iniziali = 0;
-int contarele = 0;
+int contarele_on = 0;
 int variazione = 100;
 //
 // **********************************************************************************************************
@@ -183,10 +183,10 @@ void loop() {
   // corrente_millis_rele = millis();
   // if (corrente_millis_rele > vecchio_millis_rele + 3000)
   //
-  if (linea1 == 0 && linea2 == 0 && linea3 == 0 ) contarele = 0;
-  if (linea1 == 1 && linea2 == 0 && linea3 == 0 ) contarele = 1;
-  if (linea1 == 1 && linea2 == 1 && linea3 == 0 ) contarele = 2;
-  if (linea1 == 1 && linea2 == 1 && linea3 == 1 ) contarele = 3;
+  if (linea1 == 0 && linea2 == 0 && linea3 == 0 ) contarele_on = 0;
+  if (linea1 == 1 && linea2 == 0 && linea3 == 0 ) contarele_on = 1;
+  if (linea1 == 1 && linea2 == 1 && linea3 == 0 ) contarele_on = 2;
+  if (linea1 == 1 && linea2 == 1 && linea3 == 1 ) contarele_on = 3;
   //
   if ( impulsi_consumi > 2)  // perchè bisogna che il contatore consumi abbia percepito la modifica nei consumi:
   {
@@ -194,7 +194,7 @@ void loop() {
     if (watt_energia_contrattata > val_cons)
     {
       surplus = watt_energia_contrattata - val_cons;
-      switch (contarele)
+      switch (contarele_on)
       {
         case 0:
           //linea1 = 0; linea2 = 0; linea3 = 0;
@@ -216,7 +216,7 @@ void loop() {
     else   //surplus negativo, dobbiamo staccare qualcosa:
     {
       // surplus_negativo = potenza_watt_consumi - watt_energia_contrattata;
-      switch (contarele)
+      switch (contarele_on)
       {
         case 3:
           // linea1 = 1; linea2 = 1; linea3 = 1:
@@ -233,10 +233,10 @@ void loop() {
       }
     }
     impulsi_consumi = 0;
-    if (linea1 == 0 && linea2 == 0 && linea3 == 0 ) contarele = 0;
-    if (linea1 == 1 && linea2 == 0 && linea3 == 0 ) contarele = 1;
-    if (linea1 == 1 && linea2 == 1 && linea3 == 0 ) contarele = 2;
-    if (linea1 == 1 && linea2 == 1 && linea3 == 1 ) contarele = 3;
+    if (linea1 == 0 && linea2 == 0 && linea3 == 0 ) contarele_on = 0;
+    if (linea1 == 1 && linea2 == 0 && linea3 == 0 ) contarele_on = 1;
+    if (linea1 == 1 && linea2 == 1 && linea3 == 0 ) contarele_on = 2;
+    if (linea1 == 1 && linea2 == 1 && linea3 == 1 ) contarele_on = 3;
     if (linea1 == 1) digitalWrite(9, HIGH);
     if (linea2 == 1) digitalWrite(10, HIGH);
     if (linea3 == 1) digitalWrite(11, HIGH);
