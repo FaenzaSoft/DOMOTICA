@@ -88,10 +88,10 @@ int contarele_on = 0;
 // int variazione = 100;
 //
 // **********************************************************************************************************
-int impulsi_kwh = 2000;                          // dato da modificare in base agli impulsi del contatore:
+int impulsi_kwh = 3200;                          // dato da modificare in base agli impulsi del contatore:
 // **********************************************************************************************************
-int watt_energia_contrattata = 3000;             // dato da modificare in base al contratto:
-// int watt_energia_contrattata = 6600;
+int watt_energia_contrattata = 0;             // si modifica con il trimmer di A zero, fino a 7Kw: 
+                                              // N.B. mettere una resistenza da 47k ai capi dello spinotto A zero
 // **********************************************************************************************************
 //
 void setup()
