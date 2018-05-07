@@ -2,7 +2,6 @@
   Utilizzo centralina AURORA/V34 con ingresso A6 (consumi)
   Ingresso contatore consumi SO+ e SO- connettore A6
   Versione per display 1x16 SERIALE (A4 e A5)
-  Alimentazione: 12 volt DC stabilizzati
   Autore SoftPlus Consumo Zero - email: luigi.marchi.faenza@gmail.com
   Versione software del 9/04/2018
   Video YouTube centralina Aurora: https://youtu.be/nXvUxrs9FpQ
@@ -10,7 +9,6 @@
   //
   ATTENZIONE, IMPORTANTE:
   Arduino funziona a 5 volt e non ha problemi di sorta, circa il rischio di scariche elettriche.
-  Circa l'alimentatore da rete è OBBLIGATORIO utilizzare un caricabatteria da telefonino (a norma) con uscita 12 volt DC stabilizzati.
   Per operare sulle parti hardware di contorno occorre avere le competenze ed esperienze consolidate.
   Occorre essere ESPERTI e CON PATENTINO per gli interventi SUL QUADRO ELETTRICO e in apparecchiature con tensioni di rete (230 AC).
   E' pertanto necessario affidarsi a personale qualificato.
@@ -29,7 +27,6 @@
   precisione, come i contatori Enel; i sensori utilizzati (reperibili presso PARSIC ITALIA - Cervia) richiedono 3200 impulsi ora per un KWora.
   Nella gestione relè di carico la velocità degli impulsi è rilevante e si possono utilizzare anche contatori da 2000 e 1000 impulsi.
   //
-  Basetta di interfaccia, tra contatore e Arduino: 1 resistenze da 39 Kohm lato massa (o maggiore, dipende) e 1 da 100 ohm lato 5 volt.
   Relativamente al numero di impulsi, va utilizzato il software relativo, oppure modificare le istruzioni che fanno riferimento
   agli impulsi.  Vedi anche le altre versioni di software ARCHIMEDE.
   Questo software prevede anche un simulatore, cioè la simulazione di un carico base che varia da zero a 3 Kw per simulare la gestione
@@ -43,11 +40,11 @@
 // includere altre librerie:
 #include <Wire.h>
 //
-// #include <LiquidCrystal_I2C.h>
+// #include <LiquidCrystal_I2C.h>          // si può utilizzare in alternativa alla Parsic V40;
 //
 #include <LiquidCrystal_I2C_Parsic_V40.h>
 //
-LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);       // per V34:
+LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);       // per configurazione PCF8574 nella scheda V34:
 //
 // LiquidCrystal_I2C lcd(0x20, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);    // LCM1602 IIC A0 A1 A2:
 // LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);    //POSITIVE=accensione retroilluminazione:
