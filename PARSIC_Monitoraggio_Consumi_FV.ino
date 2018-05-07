@@ -1,7 +1,6 @@
-/* PROGRAMMA AURORA Salva Energia PARSIC per contatore digitali Consumi e FV
+/* PROGRAMMA AURORA Salva Energia PARSIC V34 per contatore digitali Consumi e FV
   Versione per display 1x16 SERIALE (A4 e A5)
   Allaccio contatore digitalei a A6 e A7
-  Alimentazione: 12 volt DC stabilizzati
   Autore SoftPlus Consumo Zero - email: luigi.marchi.faenza@gmail.com
   Versione software del 10/04/2018
   Video YouTube:   https://youtu.be/nXvUxrs9FpQ
@@ -9,7 +8,6 @@
   //
   ATTENZIONE, IMPORTANTE:
   Arduino funziona a 5 volt e non ha problemi di sorta, circa il rischio di scariche elettriche.
-  Circa l'alimentatore da rete è OBBLIGATORIO utilizzare un caricabatteria da telefonino (a norma) con uscita 12 volt DC stabilizzati.
   Per operare sulle parti hardware di contorno occorre avere le competenze ed esperienze consolidate.
   Occorre essere ESPERTI e CON PATENTINO per gli interventi SUL QUADRO ELETTRICO e in apparecchiature con tensioni di rete (230 AC).
   E' pertanto necessario affidarsi a personale qualificato.
@@ -40,11 +38,11 @@
 // includere altre librerie:
 #include <Wire.h>
 //
-//#include <LiquidCrystal_I2C.h>
+//#include <LiquidCrystal_I2C.h>             // si può utilizzare in alternativa alla Parsic V40;
 //
 #include <LiquidCrystal_I2C_Parsic_V40.h>      
 //
-LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);       // per V34:
+LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);       // per configurazione PCF8574 della scheda V34:
 //
 // Viene utilizzata la libreria I2C NewliquidCrystal_1.3.4
 // Se si usano altre librerie qualche riga di codice va modificata:
