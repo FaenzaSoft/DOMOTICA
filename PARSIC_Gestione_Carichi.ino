@@ -5,7 +5,6 @@
   Uscite relè: D9, D10 e D11
   Uscite PWM: D3, D5 e D6
   Versione per display 1x16 SERIALE (A4 e A5)
-  Alimentazione: 12 volt DC stabilizzati
   N 3 trimmer di regolazione potenza allaccio relè + 1 trimmer regolazione potenza contrattata
   Autore SoftPlus Consumo Zero - email: luigi.marchi.faenza@gmail.com
   Versione software del 28/04/2018
@@ -29,11 +28,10 @@
   gestite da relè, cioè sui consumi prelevati da rete Enel).
   //
   IMPORTANTE: i sensori digitali producono degli impulsi la cui distanza, l'uno dall'altro, è inversamente proporzionale alla potenza:
-  ciò comporta una certa lentezza nella valutazione dei piccoli carichi,la contropartita è una misurazione "fiscale" della massima
+  ciò comporta una certa lentezza nella valutazione dei piccoli carichi, la contropartita è una misurazione "fiscale" della massima
   precisione, come i contatori Enel; i sensori utilizzati (reperibili presso PARSIC ITALIA - Cervia) richiedono 3200 impulsi ora per un KWora.
   Nella gestione relè di carico la velocità degli impulsi è rilevante e si possono utilizzare anche contatori da 2000 e 1000 impulsi.
   //
-  Basetta di interfaccia, tra contatore e Arduino: 1 resistenze da 39 Kohm lato massa (o maggiore, dipende) e 1 da 100 ohm lato 5 volt.
   Relativamente al numero di impulsi, va utilizzato il software relativo, oppure modificare le istruzioni che fanno riferimento
   agli impulsi.  Vedi anche le altre versioni di software ARCHIMEDE.
   Questo software prevede anche un simulatore, cioè la simulazione di un carico base che varia da zero a 3 Kw per simulare la gestione
@@ -47,7 +45,7 @@
 // includere altre librerie:
 #include <Wire.h>
 //
-// #include <LiquidCrystal_I2C.h>
+// #include <LiquidCrystal_I2C.h>    // si può utilizzare in alternativa alla Parsic V40;
 //
 #include <LiquidCrystal_I2C_Parsic_V40.h>
 //
@@ -100,7 +98,7 @@ int totale = 0;
 int impulsi_kwh = 3200;                          // dato da modificare in base agli impulsi del contatore:
 // **********************************************************************************************************
 int watt_energia_contrattata = 0;        // va impostata con il trimmer accanto all'ingresso A zero, fino a 7 kw circa:
-// N.B.: occorre cortocircuitare il connettore A zero con una resistenza da 47k
+// N.B.: occorre cortocircuitare il connettore A zero con una resistenza da 47k o con allaccio spinotto:
 // **********************************************************************************************************
 //
 void setup()
