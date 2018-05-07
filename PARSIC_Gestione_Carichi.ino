@@ -1,6 +1,6 @@
 /* PROGRAMMA AURORA Salva Energia PARSIC ITALIA - NANO 1X16 per contatore digitale e RELE' di stop stacco energia
-  Utilizzo centralina AURORA con ingresso A6 (consumi) e 1 contatore digitale
-  N.B.: inserire una resistenza da 47k sul morsetto A zero per consentire la misura dell'energia di contratto:
+  Utilizzo centralina PARSIC V34 con ingresso A6 (consumi) e 1 contatore digitale
+  N.B.: inserire una resistenza da 47k sul morsetto A zero per fissare la misura dell'energia di contratto:
   Ingresso contatore consumi SO+ e SO- connettore A6
   Uscite relè: D9, D10 e D11
   Uscite PWM: D3, D5 e D6
@@ -49,7 +49,7 @@
 //
 #include <LiquidCrystal_I2C_Parsic_V40.h>
 //
-LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);        // per V34:
+LiquidCrystal_I2C lcd(0x20, 4, 5, 6, 0, 1, 2, 3, 7, POSITIVE);        // importante, per configurazione PCF8574 della V34:
 //
 // LiquidCrystal_I2C lcd(0x20, 16,2);    // LCM1602 IIC A0 A1 A2:
 // LiquidCrystal_I2C lcd(0x20, 2, 1, 0, 4, 5, 6, 7);    // LCM1602 IIC A0 A1 A2:
