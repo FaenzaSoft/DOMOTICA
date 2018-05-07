@@ -8,7 +8,6 @@
   //
   ATTENZIONE, IMPORTANTE:
   Arduino funziona a 5 volt e non ha problemi di sorta, circa il rischio di scariche elettriche.
-  Circa l'alimentatore da rete è OBBLIGATORIO utilizzare un caricabatteria da telefonino (a norma) con uscita 12 volt DC stabilizzati.
   Per operare sulle parti hardware di contorno occorre avere le competenze ed esperienze consolidate.
   Occorre essere ESPERTI e CON PATENTINO per gli interventi SUL QUADRO ELETTRICO e in apparecchiature con tensioni di rete (230 AC).
   E' pertanto necessario affidarsi a personale qualificato.
